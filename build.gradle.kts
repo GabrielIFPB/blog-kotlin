@@ -26,6 +26,7 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
 	runtimeOnly("com.h2database:h2:1.4.200")
 	testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<KotlinCompile> {
