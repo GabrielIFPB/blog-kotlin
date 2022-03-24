@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.5.6"
+	id("org.springframework.boot") version "2.6.4"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	kotlin("jvm") version "1.5.31"
-	kotlin("plugin.spring") version "1.5.31"
-	kotlin("plugin.jpa") version "1.5.31"
+	kotlin("jvm") version "1.6.10"
+	kotlin("plugin.spring") version "1.6.10"
+	kotlin("plugin.jpa") version "1.6.10"
 }
 
 group = "com.inteligenciadigital"
@@ -17,16 +17,17 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.5.6")
-	implementation("org.springframework.boot:spring-boot-starter-mustache:2.5.6")
-	implementation("org.springframework.boot:spring-boot-starter-web:2.5.6")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
+
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-mustache:2.6.4")
+	implementation("org.springframework.boot:spring-boot-starter-web:2.6.4")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
-	runtimeOnly("com.h2database:h2:1.4.200")
-	testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
-	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:2.5.6")
+	developmentOnly("org.springframework.boot:spring-boot-devtools:2.6.4")
+	runtimeOnly("com.h2database:h2")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.4")
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:2.6.4")
 }
 
 tasks.withType<KotlinCompile> {
