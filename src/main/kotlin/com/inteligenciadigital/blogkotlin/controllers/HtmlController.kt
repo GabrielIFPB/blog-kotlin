@@ -15,14 +15,14 @@ import org.springframework.web.server.ResponseStatusException
 
 @Controller
 class HtmlController(
-	private val repository: ArticleRepository,
-	private val properties: BlogProperties) {
+	private val articleRepository: ArticleRepository,
+	private val blogProperties: BlogProperties) {
 
 	@GetMapping("/")
 	fun blog(model: Model): String {
-		model["title"] = properties.title
-		model["banner"] = properties.banner
-		model["articles"] = repository.findAllByOrderByAddedAtDesc().map {
+		model["title"] = blogProperties.title
+		model["banner"] = blogProperties.banner
+		model["articles"] = articleRepository.findAllByOrderByAddedAtDesc().map {
 			it.render()
 		}
 		return "blog"
@@ -30,7 +30,7 @@ class HtmlController(
 
 	@GetMapping("/article/{slug}")
 	fun article(@PathVariable slug: String, model: Model): String {
-		val article = repository
+		val article = articleRepository
 			.findBySlug(slug)
 			?.render()
 			?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article does not exist")
